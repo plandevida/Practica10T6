@@ -25,10 +25,6 @@
  */
 template <class T>
 class ColaVector {
-    private:
-        T *_v;
-        int _cero;
-        int _ultimo;
         
     public:
         ColaVector() : _cero(0), _ultimo(0), _v(NULL) {}
@@ -45,13 +41,25 @@ class ColaVector {
          */
         void ponDetras(const T &elem) {
             if (_v == NULL) {
-                _v = new T[2];
+                
+                TAM_MAX = 10;
+                _v = new T[TAM_MAX];
             }
             
-            if (_v)
+            if (numElems() >= TAM_MAX) {
                 
-                _v[_ultimo] = elem;
+                T * aux = new T[2*TAM_MAX];
+                
+                for (unsigned int i = 0; i < numElems(); i++) {
+                    aux[i] = _v[i];
+                }
+                
+                _v = aux;
+                
+                delete aux;
+            }
             
+            _v[_ultimo] = elem;
             _ultimo++;
         }
         
@@ -119,9 +127,11 @@ class ColaVector {
         // //
         
         /** Constructor copia */
-        ColaVector(const ColaVector<T> &other) : _cero(0) {
-            _ultimo = other.numElems() + 1;
-            copia(other);
+        ColaVector(const ColaVector<T> &other) : _cero(0), _ultimo(0), _v(NULL) {
+            
+            if ( this != &other) {
+                copia(other);
+            }
         }
         
         /** Operador de asignación */
@@ -140,25 +150,30 @@ class ColaVector {
             
             
             if ( numElems() != other.numElems() ) {
+                
                 resultado = false;
+            } else if ( esVacia() || other.esVacia() ) {
+                
+                resultado = true;
+            } else {
+                
+                T elemento = _v[_cero];
+                T elementoOther = other.primero();
+                
+                int i = 1;
+                
+                do {
+                    if (elemento != elementoOther) {
+                        resultado = false;
+                    }
+                    
+                    elemento = _v[i];
+                    elementoOther = *( &(other.primero())+i );
+                    
+                    i++;
+                    
+                } while( resultado && (i < other.numElems()) );
             }
-            
-            T elemento = _v[_cero];
-            T elementoOther = other.primero();
-            
-            int i = 1;
-            
-            do {
-                if (elemento != elementoOther) {
-                    resultado = false;
-                }
-                
-                elemento = _v[i];
-                elementoOther = *( &(other.primero())+1 );
-                
-                i++;
-                
-            } while( resultado && (i < other.numElems()) );
             
             return resultado;
         }
@@ -173,17 +188,32 @@ class ColaVector {
             delete []_v;
         }
         
-        void copia(const ColaVector &other) {
+        void copia(const ColaVector<T> &other) {
             
             if (other.esVacia()) {
                 _cero = _ultimo = 0;
             } else {
                 
+                _ultimo = other.numElems() + 1;
+
                 for (int i = 0; i < other.numElems(); i++) {
-                    _v[_cero + i] = other._v[i];
+                    _v[i] = other._v[i];
                 }
             }
         }
+    
+    private:
+        // vector que contienen los elementos de la cola
+        T *_v;
+    
+        // indice donde comienza el primer elemento
+        int _cero;
+    
+        // indice donde acaba el último elemento +1 (para insertar directamente)
+        int _ultimo;
+    
+        // Tamaño actual del vector.
+        int TAM_MAX;
 };
 
 #endif	/* COLA_VECTOR_H */
