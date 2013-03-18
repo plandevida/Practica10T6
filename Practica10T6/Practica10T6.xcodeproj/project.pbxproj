@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E5C29F616F757A5003AF0E8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C29F516F757A5003AF0E8 /* main.cpp */; };
 		3E5C29F816F757A5003AF0E8 /* Practica10T6.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E5C29F716F757A5003AF0E8 /* Practica10T6.1 */; };
+		3E5C2A0716F75CB5003AF0E8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C2A0316F75CB5003AF0E8 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,16 @@
 
 /* Begin PBXFileReference section */
 		3E5C29F116F757A5003AF0E8 /* Practica10T6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Practica10T6; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E5C29F516F757A5003AF0E8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3E5C29F716F757A5003AF0E8 /* Practica10T6.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Practica10T6.1; sourceTree = "<group>"; };
+		3E5C29FE16F75CB5003AF0E8 /* Cola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cola.h; path = ../../Cola.h; sourceTree = "<group>"; };
+		3E5C29FF16F75CB5003AF0E8 /* ColaVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColaVector.h; path = ../../ColaVector.h; sourceTree = "<group>"; };
+		3E5C2A0016F75CB5003AF0E8 /* DCola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCola.h; path = ../../DCola.h; sourceTree = "<group>"; };
+		3E5C2A0116F75CB5003AF0E8 /* Excepciones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Excepciones.h; path = ../../Excepciones.h; sourceTree = "<group>"; };
+		3E5C2A0216F75CB5003AF0E8 /* Lista.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lista.h; path = ../../Lista.h; sourceTree = "<group>"; };
+		3E5C2A0316F75CB5003AF0E8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../main.cpp; sourceTree = "<group>"; };
+		3E5C2A0416F75CB5003AF0E8 /* Pila.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pila.h; path = ../../Pila.h; sourceTree = "<group>"; };
+		3E5C2A0516F75CB5003AF0E8 /* PilaE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PilaE.h; path = ../../PilaE.h; sourceTree = "<group>"; };
+		3E5C2A0616F75CB5003AF0E8 /* PilaLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PilaLE.h; path = ../../PilaLE.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +68,34 @@
 		3E5C29F416F757A5003AF0E8 /* Practica10T6 */ = {
 			isa = PBXGroup;
 			children = (
-				3E5C29F516F757A5003AF0E8 /* main.cpp */,
+				3E5C2A0916F75CCA003AF0E8 /* source */,
+				3E5C2A0816F75CBB003AF0E8 /* headers */,
 				3E5C29F716F757A5003AF0E8 /* Practica10T6.1 */,
 			);
 			path = Practica10T6;
+			sourceTree = "<group>";
+		};
+		3E5C2A0816F75CBB003AF0E8 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				3E5C2A0416F75CB5003AF0E8 /* Pila.h */,
+				3E5C2A0516F75CB5003AF0E8 /* PilaE.h */,
+				3E5C2A0616F75CB5003AF0E8 /* PilaLE.h */,
+				3E5C29FE16F75CB5003AF0E8 /* Cola.h */,
+				3E5C29FF16F75CB5003AF0E8 /* ColaVector.h */,
+				3E5C2A0016F75CB5003AF0E8 /* DCola.h */,
+				3E5C2A0116F75CB5003AF0E8 /* Excepciones.h */,
+				3E5C2A0216F75CB5003AF0E8 /* Lista.h */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+		3E5C2A0916F75CCA003AF0E8 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				3E5C2A0316F75CB5003AF0E8 /* main.cpp */,
+			);
+			name = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E5C29F616F757A5003AF0E8 /* main.cpp in Sources */,
+				3E5C2A0716F75CB5003AF0E8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

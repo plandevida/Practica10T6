@@ -175,15 +175,12 @@ class ColaVector {
         
         void copia(const ColaVector &other) {
             
-            ColaVector o = other;
-            
             if (other.esVacia()) {
                 _cero = _ultimo = 0;
             } else {
                 
                 for (int i = 0; i < other.numElems(); i++) {
-                    _v[_cero + i] = o.primero();
-                    o.quitaPrim();
+                    _v[_cero + i] = other._v[i];
                 }
             }
         }
