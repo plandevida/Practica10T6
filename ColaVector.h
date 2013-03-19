@@ -56,7 +56,7 @@ class ColaVector {
                 
                 _v = aux;
                 
-                delete aux;
+                delete []aux;
             }
             
             _v[_ultimo] = elem;
