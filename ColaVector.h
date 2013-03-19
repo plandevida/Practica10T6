@@ -127,7 +127,7 @@ class ColaVector {
         // //
         
         /** Constructor copia */
-        ColaVector(const ColaVector<T> &other) : _cero(0), _ultimo(0), _v(NULL) {
+        ColaVector(ColaVector<T> &other) : _cero(0), _ultimo(0), _v(NULL) {
             
             if ( this != &other) {
                 copia(other);
@@ -188,12 +188,13 @@ class ColaVector {
             delete []_v;
         }
         
-        void copia(const ColaVector<T> &other) {
+        void copia(ColaVector<T> &other) {
             
             if (other.esVacia()) {
                 _cero = _ultimo = 0;
             } else {
                 
+                // + 1  ya que ultimo apunta a una posición por delante del último elemento.
                 _ultimo = other.numElems() + 1;
 
                 for (int i = 0; i < other.numElems(); i++) {
